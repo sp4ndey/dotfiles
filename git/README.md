@@ -2,5 +2,5 @@
 
 ```ini
 [include]
-    path = ~/path/to/.gitconfig.aliases
+    path = ~/path/to/gitconfig.aliases
 ```
