@@ -1,0 +1,12 @@
+[alias]
+    # Nicer display of commit graph
+	graph = log --oneline --all --graph --format=\"%C(auto)%h %d%Creset %C(blue)%aN%Creset %C(magenta)%ar%Creset %<(50,trunc)%s\"
+
+    # Switch to a branch and pull it up to the latest main
+	up = !git checkout $1 && git rebase main
+
+    # Switch to main and update it with the latest code
+	freshen = !git checkout main && git pull --all --prune
+
+    # Delete all merged branches
+    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main' | xargs git branch -d"
