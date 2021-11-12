@@ -1,4 +1,6 @@
 [alias]
+    alias = !git config -l | grep '^alias\\.' | cut -c 7-
+
     # Nicer display of commit graph
     graph = log --oneline --all --graph --format=\"%C(auto)%h %d%Creset %C(blue)%aN%Creset %C(magenta)%ar%Creset %<(50,trunc)%s\"
 
@@ -10,3 +12,10 @@
 
     # Delete all merged branches
     cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main' | xargs git branch -d"
+
+    co = checkout
+    cob = checkout -b
+
+    publish = push -u origin HEAD
+
+    pr = "!open https://github.com/$(git config remote.origin.url | sed 's/.*://;s/.git$//')/compare/$(git rev-parse --abbrev-ref HEAD)"
