@@ -13,9 +13,15 @@
     # Delete all merged branches
     cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main' | xargs git branch -d"
 
+    ci = commit
+
     co = checkout
     cob = checkout -b
 
     publish = push -u origin HEAD
 
     pr = "!open https://github.com/$(git config remote.origin.url | sed 's/.*://;s/.git$//')/compare/$(git rev-parse --abbrev-ref HEAD)"
+
+    stat = status
+
+    unstage = restore --staged
