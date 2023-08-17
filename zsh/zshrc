@@ -1,0 +1,17 @@
+for config_file in ~/src/personal/dotfiles/zsh/*.zsh; do
+  source $config_file
+done
+unset config_file
+
+if [ -d ~/src/personal/dotfiles-private/zsh ]; then
+  for config_file in ~/src/personal/dotfiles-private/zsh/*.zsh; do
+    source $config_file
+  done
+  unset config_file
+fi
+
+autoload -U colors && colors
+
+setopt PROMPT_SUBST
+
+PROMPT='%~% $(git_current_branch)$ '
