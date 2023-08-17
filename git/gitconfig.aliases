@@ -25,3 +25,5 @@
     stat = status
 
     unstage = restore --staged
+
+    setemail = config --local user.email
